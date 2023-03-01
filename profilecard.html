@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Profile_Card</title>
+	<link href="imgs/cute.png" rel="icon" type="image/x-icon" />
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			user-select: none;
+		}
+
+		body{
+			min-height: 100vh;
+			background: #06283D;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: 'Gloock', serif;
+		}
+
+		.myself{
+			position: relative;
+			width: 350px;
+			height: 190px;
+			background: transparent;
+			transition: 0.5s;
+			border-radius: 5px;
+		}
+
+		.myself:hover{
+			height: 450px;
+		}
+
+		.myself .lines{
+			position: absolute;
+			inset: 0;
+			background: #2A2438;
+			overflow: hidden;
+			border-radius: 5px;
+		}
+
+		.myself .lines::before{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 600px;
+			height: 120px;
+			background: linear-gradient(transparent,#47B5FF,#47B5FF,#47B5FF,transparent);
+			transform: translate(-50%,-50%);
+			animation: animate 4s linear infinite;
+		}
+
+		@keyframes animate{
+			0%{
+				transform: translate(-50%,-50%) rotate(0deg);
+			}
+
+			100%{
+				transform: translate(-50%,-50%) rotate(1turn);
+			}
+		}
+
+		.myself .lines::after{
+			content: '';
+			position: absolute;
+			background: #1C658C;
+			inset: 3px;
+		}
+
+		.myself .image{
+			width: 150px;
+			height: 150px;
+			background: #18122B;
+			border-radius: 5px;
+			position: absolute;
+			top: -50px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 10;
+			transition: 0.5s;
+			overflow: hidden;
+		}
+
+		.myself:hover .image{
+			width: 250px;
+			height: 250px;
+		}
+
+		.myself .image::before{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 500px;
+			height: 150px;
+			transform: translate(-50%,-50%);
+			background: linear-gradient(transparent,#6C00FF,#6C00FF,#6C00FF,transparent);
+			animation: animate2 6s linear infinite;
+		}
+
+		@keyframes animate2{
+			0%{
+				transform: translate(-50%,-50%) rotate(1turn);
+			}
+
+			100%{
+				transform: translate(-50%,-50%) rotate(0deg);
+			}
+		}
+
+		.myself .image::after{
+			content: '';
+			position: absolute;
+			inset: 3px;
+			background: #00425A;
+		}
+
+		.myself .image img{
+			position: absolute;
+			z-index: 1;
+			width: calc(100% - 20px);
+			height: calc(100% - 20px);
+			border-radius: 5px;
+			top: 10px;
+			left: 10px;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		.myself .text{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			overflow: hidden;
+		}
+
+		.myself .text .details{
+			padding: 40px;
+			width: 100%;
+			transition: 0.5s;
+			text-align: center;
+			transform:translateY(145px);
+			transition: 0.5s;
+		}
+
+		.myself:hover .text .details{
+			transform: translateY(0px);
+		}
+
+		.myself .text .details h2{
+			font-size: 1.25rem;
+			font-weight: 600;
+			line-height: 1.2rem;
+			color: #03001C;
+			letter-spacing: 1px;
+		}
+
+		.myself .text .details h2 span{
+			font-size: 0.75rem;
+			font-weight: 500;
+			color: #ECF9FF;
+			letter-spacing: 1px;
+		}
+
+		.myself .text .details .data{
+			display: flex;
+			justify-content: space-between;
+			margin: 20px 0;
+		}
+
+		.myself .text .details .data h3{
+			font-size: 1rem;
+			font-weight: 600;
+			line-height: 1.2rem;
+			letter-spacing: 1px;
+			color: #03001C;
+		}
+
+		.myself .text .details .data h3 span{
+			font-size: 0.85rem;
+			font-weight: 400;
+			color: #ECF9FF;
+			letter-spacing: 1px;
+		}
+
+		.myself .text .details .actionBtn{
+			display: flex;
+			justify-content: space-between;
+			gap: 20px;
+		}
+
+		.myself .text .details .actionBtn button{
+			padding: 10px 30px;
+			border: none;
+			outline: none;
+			border-radius: 5px;
+			font-family: 'Gloock', serif;
+			font-size: 1rem;
+			font-weight: 500;
+			background: #18122B;
+			color: #ECF9FF;
+			cursor: pointer;
+			opacity: 0.9;
+			transition: all 0.3s;
+		}
+
+		.myself .text .details .actionBtn  button:nth-child(2){
+			background: #ECF9FF;
+			color: #18122B;
+		}
+
+		.myself .text .details .actionBtn button:hover{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="myself">
+		<div class="lines"></div>
+		<div class="image">
+			<img src="imgs/me33.jpg" alt="moe" />
+		</div>
+		<div class="text">
+			<div class="details">
+				<h2>Moe Pyae Pyae Naing<br/>
+				<span>Developer | CDM Student</span></h2>
+				<div class="data">
+					<h3>12<br/><span>Posts</span></h3>
+					<h3>28<br/><span>Followers</span></h3>
+					<h3>29<br/><span>Following</span></h3>
+				</div>
+				<div class="actionBtn">
+					<a href="https://github.com/RainPyae5995" target="_blank">
+						<button>Follow</button>
+					</a>
+					<button>Message</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water Drop Effects</title>
+    <link rel="icon" type="image/x-icon" href="imgs/cute.png" />
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.875rem;
+        background: #e0e0e0;
+        font-family: "Shantell Sans", cursive;
+        text-transform: uppercase;
+      }
+
+      .drop {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        /* background: #ccc; */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #212121;
+        font-size: 2.5rem;
+        text-shadow: -2px -2px 5px #fff;
+        filter: drop-shadow(4px 4px 10px #fff);
+        box-shadow: inset 10px 10px 10px rgb(190, 190, 190, 0.5),
+          20px 20px 10px rgb(0, 0, 0, 0.05), 20px 15px 10px rgba(0, 0, 0, 0.05),
+          inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+      }
+
+      .drop::before {
+        content: "";
+        position: absolute;
+        background: #cecece;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        top: 35px;
+        left: 25px;
+        filter: blur(2px);
+      }
+
+      .drop::after {
+        content: "";
+        position: absolute;
+        background: #cecece;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        top: 25px;
+        left: 45px;
+        filter: blur(2px);
+      }
+
+      span {
+        font-size: 3rem;
+      }
+
+      .drop ion-icon {
+        color: #d50000;
+        font-size: 2em;
+        margin-top: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="drop">
+      <!-- <p>Html</p> -->
+      <p>Joe</p>
+    </div>
+    <span>+</span>
+    <div class="drop">
+      <!-- <p>Css</p> -->
+      <p>Tay</p>
+    </div>
+    <span>=</span>
+    <div class="drop">
+      <p><ion-icon name="heart"></ion-icon></p>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

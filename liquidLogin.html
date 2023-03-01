@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liquid_Drop Login_Page</title>
+    <link href="imgs/drop.png" rel="icon" type="image/x-icon" />
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Gloock", serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #eceff1;
+      }
+
+      .box {
+        position: relative;
+        left: -80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box .drop {
+        position: relative;
+        width: 350px;
+        height: 350px;
+        box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+          25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+          inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+        border-radius: 44% 56% 53% 47% / 40% 42% 58% 60%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        transition: 0.5s;
+      }
+
+      .box .drop:hover {
+        border-radius: 50%;
+      }
+
+      .box .drop::before {
+        content: "";
+        position: absolute;
+        top: 50px;
+        left: 75px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        opacity: 0.9;
+      }
+
+      .box .drop::after {
+        content: "";
+        position: absolute;
+        top: 88px;
+        left: 100px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        opacity: 0.9;
+      }
+
+      .box .drop .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        gap: 15px;
+      }
+
+      .box .drop .content h2 {
+        position: relative;
+        color: #333;
+        letter-spacing: 0.05rem;
+        font-size: 1.5rem;
+      }
+
+      .box .drop .content form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .box .drop .content form .inputBx {
+        position: relative;
+        width: 255px;
+        box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1),
+          inset -2px -5px 10px rgba(255, 255, 255, 1),
+          15px 15px 10px rgba(0, 0, 0, 0.05),
+          15px 10px 15px rgba(0, 0, 0, 0.025);
+        border-radius: 25px;
+      }
+
+      .box .drop .content form .inputBx::before {
+        content: "";
+        position: absolute;
+        width: 65%;
+        height: 5px;
+        background: rgba(0, 0, 0, 0.05);
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 5px;
+      }
+
+      .box .drop .content form .inputBx input {
+        border: none;
+        outline: none;
+        background: transparent;
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 15px;
+      }
+
+      .box .drop .content form .inputBx input[type="submit"] {
+        color: #e0e0e0;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        cursor: pointer;
+      }
+
+      .box .drop .content form .inputBx:last-child {
+        width: 120px;
+        background: #ff4081;
+        box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1),
+          15px 15px 10px rgba(0, 0, 0, 0.05),
+          15px 10px 15px rgba(0, 0, 0, 0.025);
+        transition: 0.5s;
+      }
+
+      .box .drop .content form .inputBx:last-child:hover {
+        width: 150px;
+      }
+
+      .btns {
+        position: absolute;
+        right: -120px;
+        bottom: 0;
+        width: 120px;
+        height: 120px;
+        background: rgb(171, 71, 188);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        color: #e0e0e0;
+        line-height: 1.2rem;
+        letter-spacing: 0.1rem;
+        font-size: 0.8rem;
+        transition: 0.5s;
+        box-shadow: inset 10px 10px 10px rgba(171, 71, 188, 0.05),
+          15px 25px 10px rgba(171, 71, 188, 0.1),
+          15px 20px 20px rgba(171, 71, 188, 0.1),
+          inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+        border-radius: 34% 66% 65% 35% / 55% 56% 42% 45%;
+      }
+
+      .btns::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 15px;
+        left: 30px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        opacity: 0.45;
+      }
+
+      .btns.signup {
+        bottom: 150px;
+        right: -140px;
+        width: 80px;
+        height: 80px;
+        border-radius: 49% 51% 53% 47% / 63% 59% 41% 32%;
+        background: rgb(83, 109, 254);
+        box-shadow: inset 10px 10px 10px rgba(83, 109, 254, 0.05),
+          15px 25px 10px rgba(83, 109, 254, 0.1),
+          15px 20px 20px rgba(83, 109, 254, 0.1),
+          inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+      }
+
+      .btns.signup::before {
+        width: 15px;
+        height: 15px;
+        left: 30px;
+        top: 10px;
+      }
+
+      .btns:hover {
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="drop">
+        <div class="content">
+          <h2>Sign in</h2>
+          <form action="" method="" enctype="multipart/form-data">
+            <div class="inputBx">
+              <input type="text" placeholder="Username" />
+            </div>
+            <div class="inputBx">
+              <input type="password" placeholder="Password" />
+            </div>
+            <div class="inputBx">
+              <input type="submit" value="Login" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <a href="#" class="btns">Forgot Password</a>
+      <a href="#" class="btns signup">Sign Up</a>
+    </div>
+  </body>
+</html>

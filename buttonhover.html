@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Button Hover_Effect</title>
+	<link href="imgs/letterF.png" rel="icon" type="image/x-icon" />
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			width: 100%;
+			min-height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: 'Gloock', serif;
+			background: #2C3333;
+		}
+
+		.vessel {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 120px;
+		}
+
+		.vessel a {
+			position: relative;
+			padding: 16px 30px;
+			font-size: 1.5rem;
+			color: var(--clr);
+			text-shadow: 0 0 15px var(--clr);
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 1.6px;
+			border: 2px solid rgba(65, 63, 66);
+			border-radius: 5px;
+
+			transition: 0.5s;
+		}
+
+		.vessel a:hover {
+			color: #fff;
+			border: 2px solid rgba(65, 63, 66,0.5);
+			text-shadow: 0 0 0px var(--clr);
+		}
+
+		.vessel a::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: var(--clr);
+			transform: scale(0);
+			transition: 0.5s;
+			z-index: -1;
+		}
+
+		.vessel a:hover::before {
+			transform: scale(1);
+			transition-delay: 0.5s;
+			box-shadow: 0 0 10px var(--clr),0 0 30px var(--clr),0 0 60px var(--clr);
+		}
+
+		.vessel a span {
+			position: absolute;
+			background: var(--clr);
+			box-shadow: 0 0 10px var(--clr),0 0 20px var(--clr),0 0 30px var(--clr),0 0 50px var(--clr),0 0 100px var(--clr);
+			pointer-events: none;
+		}
+
+		.vessel a span:nth-child(1),
+		.vessel a span:nth-child(3) {
+			width: 40px;
+			height: 4px;
+		}
+
+		.vessel a span:nth-child(2),
+		.vessel a span:nth-child(4) {
+			width: 4px;
+			height: 40px;
+		}
+
+		.vessel a span:nth-child(1) {
+			top: calc(50% - 2px);
+			left: -50px;
+			transform-origin: left;
+			transition: 0.5s ease-in-out;
+			transition-delay: 0.25s;
+		}
+
+		.vessel a:hover span:nth-child(1){
+			left: 50%;
+			transform: scaleX(0);
+			opacity: 0;
+			transition-delay: 0s;
+		} 
+
+		.vessel a span:nth-child(3) {
+			top: calc(50% - 2px);
+			right: -50px;
+			transform-origin: right;
+			transition: 0.5s ease-in-out;
+			transition-delay: 0.25s;
+		}
+
+		.vessel a:hover span:nth-child(3){
+			right: 50%;
+			transform: scaleX(0);
+			opacity: 0;
+			transition-delay: 0s;
+		} 
+
+		.vessel a span:nth-child(2) {
+			left: calc(50% - 2px);
+			bottom: -50px;
+			transform-origin: right;
+			transition: 0.5s ease-in-out;
+			transition-delay: 0.25s;
+		}
+
+		.vessel a:hover span:nth-child(2){
+			bottom: 50%;
+			transform: scaleX(0);
+			opacity: 0;
+			transition-delay: 0s;
+		} 
+
+		.vessel a span:nth-child(4) {
+			right: calc(50% - 2px);
+			top: -50px;
+			transform-origin: right;
+			transition: 0.5s ease-in-out;
+			transition-delay: 0.25s;
+		}
+
+		.vessel a:hover span:nth-child(4){
+			top: 50%;
+			transform: scaleX(0);
+			opacity: 0;
+			transition-delay: 0s;
+		} 
+
+		
+	</style>
+</head>
+<body>
+	<div class="vessel">
+		<a href="#" style="--clr:#16FF00;">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			Third
+		</a>
+
+		<a href="#" style="--clr:#F54291;">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			Second
+		</a>
+
+		<a href="#" style="--clr:#F9B208;">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			First
+		</a>
+	</div>
+</body>
+</html>
